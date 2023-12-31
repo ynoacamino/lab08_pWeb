@@ -23,12 +23,12 @@ sub calculadora {
   }
 
   for(my $i = 0; $i < @operadores; $i++) {
-    if ($operadores[$i] eq '*') {
+    if ($operadores[$i] =~ /\*/) {
       $numeros[$i] = $numeros[$i] * $numeros[$i + 1];
       splice @numeros, $i + 1, 1;
       splice @operadores, $i, 1;
       $i = $i - 1;
-    } elsif ($operadores[$i] eq '/') {
+    } elsif ($operadores[$i] =~ /\//) {
       $numeros[$i] = $numeros[$i] / $numeros[$i + 1];
       splice @numeros, $i + 1, 1;
       splice @operadores, $i, 1;
@@ -37,12 +37,12 @@ sub calculadora {
   }
 
   for(my $i = 0; $i < @operadores; $i++) {
-    if ($operadores[$i] eq '+') {
+    if ($operadores[$i] =~ /\+/) {
       $numeros[$i] = $numeros[$i] + $numeros[$i + 1];
       splice @numeros, $i + 1, 1;
       splice @operadores, $i, 1;
       $i = $i - 1;
-    } elsif ($operadores[$i] eq '-') {
+    } elsif ($operadores[$i] =~ /\-/) {
       $numeros[$i] = $numeros[$i] - $numeros[$i + 1];
       splice @numeros, $i + 1, 1;
       splice @operadores, $i, 1;
