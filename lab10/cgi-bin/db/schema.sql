@@ -1,0 +1,21 @@
+-- using mariadb
+
+CREATE DATABASE pweb1;
+
+USE pweb1;
+
+CREATE TABLE Actor (
+  ActorID INT NOT NULL AUTO_INCREMENT,
+  ActorName VARCHAR(255) NOT NULL,
+  PRIMARY KEY (ActorID)
+);
+
+CREATE TABLE Movie (
+  MovieID INT NOT NULL AUTO_INCREMENT,
+  MovieName VARCHAR(255) NOT NULL,
+  MovieActor INT NOT NULL,
+  year INT NOT NULL,
+  votes INT NOT NULL,
+  PRIMARY KEY (MovieID),
+  FOREIGN KEY (MovieActor) REFERENCES Actor(ActorID)
+);
